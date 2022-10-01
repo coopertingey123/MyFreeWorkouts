@@ -31,6 +31,8 @@ export default function SuggestedWorkouts() {
 
     useEffect(() => {
 
+        console.log(allWorkouts.exercises.length)
+
         let abdominals = allWorkouts.exercises.filter((exercise) => exercise.primaryMuscles.includes("abdominals"))
         abdominals = [...abdominals].sort(() => 0.5 - Math.random())
 

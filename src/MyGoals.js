@@ -8,14 +8,12 @@ export default function Homepage() {
   const [heightInches, setHeightInches] = useState("")
   const [currentWeight, setCurrentWeight] = useState("")
   const [targetWeight, setTargetWeight] = useState("")
-  const [fitnessGoal, setFitnessGoal] = useState("")
 
   const handleSetUserData = () => {
     Cookies.set("heightFeet", heightFeet)
     Cookies.set("heightInches", heightInches)
     Cookies.set("currentWeight", currentWeight)
     Cookies.set("targetWeight", targetWeight)
-    Cookies.set("fitnessGoal", fitnessGoal)
 
   }
 
@@ -65,16 +63,6 @@ export default function Homepage() {
             <input type="text" value={targetWeight} onChange={(e) => setTargetWeight(e.target.value)}/>
             <label style={{paddingLeft: "5px"}}>lb. </label>
           </div>
-        </div>
-        <div className="prompt">
-          <label>My Main Fitness Goal: </label>
-          <select style={{width: "180px"}} value={fitnessGoal} onChange={(e) => setFitnessGoal(e.target.value)}>
-            <option value="">Select...</option>
-            <option value="lose weight">Lose weight</option>
-            <option value="trim fat">Trim fat</option>
-            <option value="keep my body healthy">Keep my body healthy</option>
-            <option value="bulk up">Bulk up</option>
-          </select>
         </div>
         <div className="button-wrapper">
           <Link to="/suggested-workouts"><button onClick={handleSetUserData}>See suggested workouts</button></Link>

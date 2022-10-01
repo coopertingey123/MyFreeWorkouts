@@ -1,30 +1,5 @@
-import { useState } from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
-
-function Instructions({instructions, idx}) {
-    const [instructionsOpen, setInstructionsOpen] = useState(false)
-
-    const renderInstructions = () => {
-        return instructions.map((instruction, idx) => {
-            return (
-                <li key={idx}>{instruction}</li>
-            )
-        })
-    }
-
-    return (
-        <div>
-            <div onClick={() => setInstructionsOpen(o => !o)} className="instructions">Instructions: <FontAwesomeIcon icon={instructionsOpen ? faCaretDown : faCaretUp} /></div>
-            {instructionsOpen &&
-                <ol className="muscle-wrapper">
-                    {renderInstructions()}
-                </ol>
-            }
-        </div>
-    )
-}
+import Instructions from "./instructions"
 
 export default function WorkoutDay(props) {
 
@@ -34,21 +9,12 @@ export default function WorkoutDay(props) {
         // let shuffledWorkouts = [...muscleGroup].sort(() => 0.5 - Math.random()).slice(0, numOfExercises)
 
         return muscleGroup.map((workout, idx) => {
-            // const renderMuscles = () => {
-            //     return workout.primaryMuscles.map((muscle, idx) => {
-            //         return (
-            //             <div className="muscle-wrapper" key={idx}>
-            //                 {muscle}
-            //             </div>
-            //         )
-            //     })
-            // }
 
             return (
                 <div className="workout-wrapper" key={idx}>
                     <div className="workout-name">{workout.name}</div>
                     Equipment: {workout.equipment} <br/>
-                    <Instructions instructions={workout.instructions}/>
+                    <Instructions instructions={workout.instructions} idx={idx}/>
                 </div>
             )
         })
