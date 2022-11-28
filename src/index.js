@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import MyGoals from "./MyGoals";
 import Suggested from "./suggested";
 import Search from "./search"
@@ -23,5 +24,6 @@ root.render(
       <Route path="/suggested-workouts" element={<Suggested/>} />
       <Route path="/search-workouts" element={<Search/>} />
     </Routes>
+    <Footer/>
   </BrowserRouter>
 );
